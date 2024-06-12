@@ -1,6 +1,7 @@
 import React from "react";
 import ItemCards from "@/components/ItemCard";
 import action from "@/app/action";
+import { PopOver, PopOverContent, PopOverTrigger } from "@/components/PopOver";
 
 async function getRecipes() {
   action();
@@ -10,7 +11,6 @@ async function getRecipes() {
 
 const Dashboard = async () => {
   const res = await getRecipes();
-  console.log(res);
   return (
     <div>
       <ItemCards recipes={res.data} />

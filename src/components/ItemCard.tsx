@@ -4,12 +4,15 @@ import React from "react";
 
 const ItemCards = ({ recipes }: { recipes: recipe[] }) => {
   return (
-    <div className="gap-4 grid grid-cols-2 lg:grid-cols-8 dark:bg-slate-950 h-max">
-      {recipes.map((recipe) => {
-        return <ItemCard recipe={recipe} key={recipe.id} />;
-      })}
-      <AddCard />
-    </div>
+    <>
+      <h2 className="mb-2 text-3xl">All Recipes</h2>
+      <div className="gap-4 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 dark:bg-slate-950 h-max">
+        {recipes.map((recipe) => {
+          return <ItemCard recipe={recipe} key={recipe.id} />;
+        })}
+        <AddCard />
+      </div>
+    </>
   );
 };
 

@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Home() {
   const isFull = true;
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative dark:bg-black h-screen overflow-hidden">
       <div
         aria-hidden="true"
         className="-top-96 absolute flex transform -translate-x-1/2 start-1/2"

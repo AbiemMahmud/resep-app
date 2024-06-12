@@ -1,12 +1,13 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Logo from "./Logo";
-import { Search } from "lucide-react";
+import { Menu, Search } from "lucide-react";
 import Link from "next/link";
+import { PopOver, PopOverContent, PopOverTrigger } from "./PopOver";
 
 const Header = () => {
   return (
     <header>
-      <div className="top-0 fixed flex justify-between items-center border-gray-300 bg-slate-50 dark:bg-slate-950 p-4 border-b w-full h-[72px]">
+      <div className="top-0 z-10 fixed flex justify-between items-center border-gray-300 bg-slate-50 dark:bg-slate-950 p-4 border-b w-full h-[72px]">
         <div className="flex items-center gap-4">
           <div>
             <Link href={"/"}>
@@ -32,9 +33,44 @@ const Header = () => {
             </button>
           </form>
         </div>
+        <PopOver>
+          <PopOverTrigger>
+            <div className="border-slate-200 p-1 border rounded-md cursor-pointer">
+              <Menu />
+            </div>
+          </PopOverTrigger>
+          <PopOverContent>
+            <div className="">
+              <ul>
+                <ListItemMenu href="/category/add">Add category</ListItemMenu>
+                <ListItemMenu href="/categories">
+                  See all the categories
+                </ListItemMenu>
+                <ListItemMenu href="/recipes">Recipes</ListItemMenu>
+              </ul>
+            </div>
+          </PopOverContent>
+        </PopOver>
       </div>
     </header>
   );
 };
+
+function ListItemMenu({
+  children,
+  href,
+}: {
+  children: ReactNode;
+  href: string;
+}) {
+  return (
+    <Link
+      href={href}
+      className="block border-slate-200 hover:dark:bg-slate-800 px-2 pt-2 pb-1 border-b last:border-b-0 first:rounded-t-md last:rounded-b-md"
+    >
+      <li className="">{children}</li>
+    </Link>
+  );
+}
 
 export default Header;
