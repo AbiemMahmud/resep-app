@@ -1,6 +1,7 @@
-interface recipe {
+interface Recipe {
   id: number;
   name: string;
   description: string;
-  categporyId?: number | undefined;
+  categporyId?: number;
+  RecipeCategory?: RecipeCategory;
 }

@@ -1,4 +1,4 @@
-interface recipeCategory {
+interface RecipeCategory {
   id?: number;
   name: string;
 }

@@ -1,19 +1,11 @@
 import React from "react";
-import ItemCards from "@/components/ItemCard";
 import action from "@/app/action";
-import { PopOver, PopOverContent, PopOverTrigger } from "@/components/PopOver";
-
-async function getRecipes() {
-  action();
-  const response = await fetch(`${process.env.API_BASE_URL}/recipes`);
-  return response.json();
-}
+import RecipeList from "./components/RecipeList";
 
 const Dashboard = async () => {
-  const res = await getRecipes();
   return (
-    <div>
-      <ItemCards recipes={res.data} />
+    <div className="bg-gray-400 p-0 min-[425px]:p-4">
+      <RecipeList className="bg-white p-2 sm:p-4 rounded-lg" />
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import PrelineScript from "@/components/PrelineScript";
-import Header from "@/components/Header";
+import MainLayout from "@/components/layout";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,12 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="bg-slate-50 dark:bg-slate-950 text-slate-950 dark:text-slate-50">
-          <Header />
-          <main className="mt-[72px] p-4">{children}</main>
-        </div>
+        <MainLayout>{children}</MainLayout>
       </body>
-      <PrelineScript />
     </html>
   );
 }
